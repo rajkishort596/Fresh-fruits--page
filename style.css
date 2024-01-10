@@ -1,0 +1,299 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+}
+section {
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s background;
+  background: #fc4a55;
+  /* background: #ffcc02;
+  background: #92ba3c;
+  background: #fb6cb2;
+  background: #ffb42b; */
+}
+.bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+}
+.main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+  align-items: center;
+  justify-items: center;
+}
+header {
+  /* position: absolute;
+  top: 0;
+  left: 0; */
+  width: 100%;
+  padding: 20px 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  position: relative;
+  text-decoration: none;
+  font-weight: 600;
+  color: #fff;
+  font-size: 2em;
+}
+header ul {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: transparent;
+}
+header ul li {
+  list-style: none;
+  position: relative;
+}
+
+header ul li a {
+  display: inline-block;
+  color: #fff;
+  font-weight: 400;
+  margin-left: 10px;
+  padding: 8px 15px;
+  border-radius: 40px;
+  text-decoration: none;
+}
+header ul li a.active,
+header ul li a:hover {
+  background: #fff;
+  color: #333;
+}
+header .hambergur {
+  display: none;
+  z-index: 10;
+}
+header .hambergur img {
+  width: 25px;
+}
+.content {
+  position: relative;
+  width: 100%;
+  display: flex;
+  padding: 100px 10% 0px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+.content .textbox {
+  position: relative;
+  max-width: 600px;
+}
+.content .textbox h2 {
+  color: #fff;
+  font-size: 4em;
+  line-height: 1.2em;
+  font-weight: 700;
+}
+.content .textbox p {
+  color: #fff;
+  margin-top: 20px;
+}
+.content .textbox a {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 8px 15px;
+  color: #333;
+  background: #fff;
+  text-decoration: none;
+  letter-spacing: 1px;
+  border-radius: 40px;
+  transition: all 0.5s;
+}
+.content .textbox a:hover {
+  transform: translateY(-5px);
+}
+.content .imgbox {
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  transition: 0.5s all;
+}
+.content .imgbox img {
+  max-width: 400px;
+}
+.content .social-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+.content .social-icons img {
+  width: 25px;
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+.content .social-icons img:hover {
+  transform: scale(1.25);
+}
+.thumb {
+  display: flex;
+  grid-column: 1/2;
+  grid-row: 3/4;
+  z-index: 1;
+  position: relative;
+}
+.thumb li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: 0.5s;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  padding: 5px;
+}
+.thumb li.active {
+  border: 2px solid rgba(255, 255, 255, 1);
+}
+.thumb li::before {
+  position: absolute;
+  content: attr(data-text);
+  top: -160%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 5rem;
+  opacity: 0;
+  font-family: sans-serif;
+  font-weight: 800;
+}
+.thumb li.active::before {
+  opacity: 0.5;
+}
+.thumb li:hover {
+  opacity: 0.7;
+  transform: translateY(-5px);
+  border: 2px solid rgba(255, 255, 255, 1);
+}
+.thumb li img {
+  max-width: 50px;
+}
+/* ========for smaller screen=========== */
+@media screen and (max-width: 1000px) {
+  header .hambergur {
+    display: block;
+  }
+  header .hambergur .close {
+    display: none;
+  }
+  header .hambergur.active .close {
+    display: block;
+  }
+  header .hambergur.active .open {
+    display: none;
+  }
+  header ul {
+    position: absolute;
+    flex-direction: column;
+    top: 0;
+    right: 0%;
+    width: 0%;
+    bottom: 0;
+    background: #fc4a55;
+    z-index: 5;
+    padding: 100px 0px;
+    gap: 30px;
+    transition: 0.5s width;
+    overflow: hidden;
+  }
+  header ul.active {
+    width: 100%;
+  }
+  header ul li a {
+    font-weight: 700;
+    color: #000;
+  }
+  header ul li a.active,
+  header ul li a:hover {
+    color: #333;
+    background: #fff;
+  }
+  .content {
+    padding: 0px 5%;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    gap: 20px;
+  }
+  .content .textbox {
+    text-align: center;
+  }
+  .content .textbox h2 {
+    font-size: 2.5em;
+    line-height: 1.2em;
+    font-weight: 700;
+  }
+  .content .textbox p {
+    color: #fff;
+    margin-top: 20px;
+  }
+  .content .imgbox {
+    width: 100%;
+    transition: 0.5s all;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr;
+    justify-items: center;
+    gap: 0px;
+  }
+  .content .imgbox img {
+    max-width: 50%;
+    align-self: center;
+    grid-column: 1/2;
+  }
+  .content .social-icons {
+    justify-self: end;
+    grid-column: 2/2;
+    gap: 30px;
+  }
+  .content .social-icons img {
+    width: 25px;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .thumb li {
+    margin: 0 5px;
+    height: 50px;
+    width: 50px;
+  }
+  .thumb li::before {
+    top: -100%;
+    font-size: 2rem;
+  }
+  .thumb li img {
+    max-width: 100%;
+  }
+}
